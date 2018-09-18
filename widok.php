@@ -58,7 +58,7 @@ $tab = $_REQUEST['tab'];
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"><a href="/socket" class="btn btn-success" style="margin-top:20px">&larr; Powrót do strony głównej</a>
+            <div class="col-md-12"><a href="/" class="btn btn-success" style="margin-top:20px">&larr; Powrót do strony głównej</a>
                 <h1>Zawartość tabeli: <u><?php echo $tab?></u></h1>
                 <div id="content"></div>
                 <br/><!--<button class="btn btn-default" id="btn-tblcontent">Pobierz zawartość tabeli</button>-->

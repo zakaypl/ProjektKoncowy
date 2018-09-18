@@ -20,10 +20,11 @@ function wsOnMessage($clientID, $message, $messageLength, $binary) {
     switch($arg[0]) {
         case 'table_list': {
             $sql = "SHOW TABLES";
-            $tbList = $conn->query($sql)->fetchAll();        
+            $tbList = $conn->query($sql)->fetchAll();     
+			
             $ret = '<select class="form-control" id="list">';
             foreach($tbList as $t) {
-                $ret.= '<option value="'.$t['Tables_in_gopc'].'">'.$t['Tables_in_gopc'].'</option>';
+                $ret.= '<option value="'.$t['Tables_in_ps2'].'">'.$t['Tables_in_ps2'].'</option>';
             }
             $ret.='</select><button class="btn btn-primary" id="rdr">Pokaż zawartość tabeli</button>';
             

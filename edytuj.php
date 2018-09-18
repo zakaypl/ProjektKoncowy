@@ -21,8 +21,8 @@ $id = $_REQUEST['id'];
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"><a href="/socket" class="btn btn-success" style="margin-top:20px">&larr; Powrót do strony głównej</a><br/>
-                <a href="/socket/widok.php?tab=<?php echo $tab;?>" class="btn btn-primary" style="margin-top:20px">&larr; Powrót do widoku tabeli: <?php echo $tab?></a>
+            <div class="col-md-12"><a href="/" class="btn btn-success" style="margin-top:20px">&larr; Powrót do strony głównej</a><br/>
+                <a href="/widok.php?tab=<?php echo $tab;?>" class="btn btn-primary" style="margin-top:20px">&larr; Powrót do widoku tabeli: <?php echo $tab?></a>
                 <h1>Edycja zawartości tabeli: <u><?php echo $tab?></u> {id: <?php echo $id?>}</h1>
                 <div id="content">
                     <?php
