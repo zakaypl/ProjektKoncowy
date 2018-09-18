@@ -45,8 +45,12 @@ $tab = $_REQUEST['tab'];
 
 			Server.bind('message', function( payload ) {
 
-                $('#content').html(payload);
-                log( payload );
+                //console.log(payload);
+                var obj = jQuery.parseJSON(payload);
+                if(obj[0]=='<?php echo $tab ?>') {
+                    $('#content').html(obj[1]);
+                    log( payload );                 
+                }
 			});
 
 			Server.connect();

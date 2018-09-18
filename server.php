@@ -20,8 +20,7 @@ function wsOnMessage($clientID, $message, $messageLength, $binary) {
     switch($arg[0]) {
         case 'table_list': {
             $sql = "SHOW TABLES";
-            $tbList = $conn->query($sql)->fetchAll();     
-			
+            $tbList = $conn->query($sql)->fetchAll();        
             $ret = '<select class="form-control" id="list">';
             foreach($tbList as $t) {
                 $ret.= '<option value="'.$t['Tables_in_ps2'].'">'.$t['Tables_in_ps2'].'</option>';
@@ -43,6 +42,8 @@ function wsOnMessage($clientID, $message, $messageLength, $binary) {
             $sql = "SELECT * FROM `$arg[1]`";
             $tbList = $conn->query($sql)->fetchAll();        
 
+            
+            
             foreach($tbList as $t) {
                 $ret.= '<tr>';
                 foreach($tbHead as $k => $x) {
@@ -54,9 +55,11 @@ function wsOnMessage($clientID, $message, $messageLength, $binary) {
         }
         break;
     }        
+        $r[] = $arg[1];
+        $r[] = $ret;
         
     	foreach ( $Server->wsClients as $id => $client ) {
-            $Server->wsSend($id,$ret);
+            $Server->wsSend($id,json_encode($r));
         }
 }
 
