@@ -24,6 +24,12 @@ $tab = $_REQUEST['tab'];
                 <a href="/widok.php?tab=<?php echo $tab;?>" class="btn btn-primary" style="margin-top:20px">&larr; Powrót do widoku tabeli: <?php echo $tab?></a>
                 <h1>Dodanie zawartości do tabeli: <u><?php echo $tab?></u></h1>
                 <div id="content">
+					<?php if( intval($_GET['error']) == 1 ): ?>
+					<div class="alert alert-danger">
+					  <strong>Wystąpił błąd!</strong> Klucz obcy nie został znaleziony!
+					</div>
+					<?php endif; ?>
+					
                     <?php
                     $sql = "SHOW COLUMNS FROM $tab";
                     $tbHead = $conn->query($sql)->fetchAll();        

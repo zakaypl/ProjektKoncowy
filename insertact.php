@@ -28,5 +28,10 @@ $sql = "INSERT INTO `$tab` ($k) VALUES ($v);";
 $q = $conn->prepare($sql);
 $response = $q->execute();
 
-header("location:widok.php?tab=".$tab);
+if( !$response ) {
+	header("location:dodaj.php?tab=".$tab."&error=1");
+} else {
+	header("location:widok.php?tab=".$tab);
+}
+
 ?>
